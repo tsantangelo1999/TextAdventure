@@ -2,9 +2,12 @@ package com.company;
 
 public class Character
 {
-    public Character(int i)
+    public Character(int h, int a, int d, int m)
     {
-        health = i;
+        health = h;
+        attack = a;
+        defense = d;
+        magic = m;
     }
 
     private int health;
@@ -15,4 +18,5 @@ public class Character
 
     private int attack;
     private int defense;
+    private int magic;
 }
