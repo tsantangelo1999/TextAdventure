@@ -19,6 +19,8 @@ public class Player extends Character
         super(h, a, d, m);
         experience = 0;
         level = 0;
+        posX = 0;
+        posY = 0;
     }
 
     private int experience;

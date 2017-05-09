@@ -17,6 +17,20 @@ public class Character
     }
 
     private int attack;
+    public int getAttack()
+    {
+        return attack;
+    }
+
     private int defense;
+    public int getDefense()
+    {
+        return defense;
+    }
+
     private int magic;
+    public int getMagic()
+    {
+        return magic;
+    }
 }
