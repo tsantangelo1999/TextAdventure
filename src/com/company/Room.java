@@ -41,24 +41,36 @@ public abstract class Room
         return intro;
     }
 
-    public Room(boolean n, boolean e, boolean s, boolean w, String i, ArrayList<String> a)
+    private String ponder;
+    public String getPonder()
+    {
+        return ponder;
+    }
+
+    public Room(boolean n, boolean e, boolean s, boolean w, String i, String hm, ArrayList<String> a)
     {
         hasNorthExit = n;
         hasEastExit = e;
         hasSouthExit = s;
         hasWestExit = w;
         intro = i;
+        ponder = hm;
         actions = a;
     }
 
-    public abstract void load();
+    public void load()
+    {
+        System.out.println(getIntro());
+        String response = getLegalInput(true);
+
+    }
 
     public String getLegalInput(boolean includeStandardPhrases)
     {
         Scanner input = new Scanner(System.in);
         String r = "";
         boolean legal = false;
-        while(!legal)
+        top: while(!legal)
         {
             r = input.nextLine();
             for(String s : getActions())
@@ -66,7 +78,7 @@ public abstract class Room
                 if(r.equalsIgnoreCase(s))
                 {
                     legal = true;
-                    break;
+                    break top;
                 }
             }
             if(includeStandardPhrases)
