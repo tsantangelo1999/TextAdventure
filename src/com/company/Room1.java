@@ -11,7 +11,8 @@ public class Room1 extends Room
 
     public void load()
     {
-        String response = super.load(0);
+        System.out.println(getIntro());
+        String response = getLegalInput(true);
         while(!responseIsExit(response))
         {
             if(response.equalsIgnoreCase("cat"))
@@ -20,6 +21,8 @@ public class Room1 extends Room
                 System.out.println("That is indeed a dog.");
             else if(response.equalsIgnoreCase("test"))
                 System.out.println("You found the test phrase lying on the ground!");
+            response = getLegalInput(true);
         }
+        analyzeExit(response);
     }
 }

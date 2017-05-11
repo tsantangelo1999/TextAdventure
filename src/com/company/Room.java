@@ -58,12 +58,7 @@ public abstract class Room
         actions = a;
     }
 
-    public void load()
-    {
-        System.out.println(getIntro());
-        String response = getLegalInput(true);
-
-    }
+    public abstract void load();
 
     public String getLegalInput(boolean includeStandardPhrases)
     {
@@ -99,5 +94,19 @@ public abstract class Room
                 return true;
         }
         return false;
+    }
+
+    public void analyzeExit(String s)
+    {
+        if(s.equalsIgnoreCase("exit"))
+            Game.running = false;
+        if(s.equalsIgnoreCase("north") || s.equalsIgnoreCase("up"))
+            Game.player.north();
+        if(s.equalsIgnoreCase("east") || s.equalsIgnoreCase("right"))
+            Game.player.east();
+        if(s.equalsIgnoreCase("west") || s.equalsIgnoreCase("left"))
+            Game.player.west();
+        if(s.equalsIgnoreCase("south") || s.equalsIgnoreCase("down"))
+            Game.player.west();
     }
 }

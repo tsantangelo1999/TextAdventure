@@ -7,11 +7,27 @@ public class Player extends Character
     {
         return posX;
     }
+    public void west()
+    {
+        posX--;
+    }
+    public void east()
+    {
+        posX++;
+    }
 
     private int posY;
     public int getY()
     {
         return posY;
+    }
+    public void north()
+    {
+        posY++;
+    }
+    public void south()
+    {
+        posY--;
     }
 
     public Player(int h, int a, int d, int m)
